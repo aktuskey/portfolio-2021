@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-2021",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "core-js": "^3.15.1",
+    "gsap": "^3.8.0",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.7",
+    "sass-loader": "^10.1.1"
+  },
+  "devDependencies": {}
+}

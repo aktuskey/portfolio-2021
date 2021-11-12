@@ -1,0 +1,20 @@
+@mixin font-face(
+  $font-name,
+  $file-path-location,
+  $font-weight: normal,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: $font-name;
+    src: url("#{$file-path-location}.eot");
+    // Super Modern Browsers
+    src: url("#{$file-path-location}.woff2") format("woff2"),
+      // Pretty Modern Browsers
+        url("#{$file-path-location}.woff") format("woff"),
+      // Safari, Android, iOS
+        url("#{$file-path-location}.ttf") format("truetype");
+    // url('#{$file-path-location}.svg##{$font-name}') format('svg'); // Legacy iOS
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}

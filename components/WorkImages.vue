@@ -3,7 +3,7 @@
     <div class="WorkImages">
       <img v-for="(image, index) in images" :key="index" class="WorkImages__image" :src="image.url" :alt="image.alt">
     </div>
-    <a v-if="liveUrl" :href="liveUrl" target="_blank" class="WorkScreens__link">view live site</a>
+    <a v-if="liveUrl && images.length > 0" :href="liveUrl" target="_blank" class="WorkScreens__link">view live site</a>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <nav class="Navbar">
+  <nav class="Navbar" :class="{ 'Navbar--hidden': navShouldHide }">
     <a href="/" class="Navbar__link">
       <h1>tuskey.dev</h1>
     </a>
@@ -12,6 +12,31 @@ import RainbowLink from '../components/RainbowLink.vue'
 export default {
   components: {
     RainbowLink
+  },
+  data: () => ({
+    hiddenNav: false
+  }),
+  computed: {
+    navShouldHide () {
+      return this.hiddenNav && this.$route.path !== '/'
+    }
+  },
+  mounted () {
+    this.magicNav()
+  },
+  methods: {
+    magicNav () {
+      let lastScrollTop = 0
+      window.addEventListener('scroll', () => {
+        let st = window.pageYOffset
+        if (st > lastScrollTop) {
+          this.hiddenNav = true
+        } else {
+          this.hiddenNav = false
+        }
+        lastScrollTop = st <= 0 ? 0 : st
+      }, false)
+    }
   }
 }
 </script>
@@ -24,6 +49,11 @@ export default {
   justify-content: space-between;
   padding: 40px;
   z-index: 10;
+  transition: transform 0.3s ease-in-out 0.35s;
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
 
   &__link {
     color: $colors__black;

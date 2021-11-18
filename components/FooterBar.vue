@@ -14,11 +14,13 @@
   justify-content: center;
   padding-bottom: 32px;
   position: relative;
+  text-align: center;
   z-index: 10;
 
   &__text {
     font-family: $fonts__jakarta-bold;
     font-size: 20px;
+    line-height: 1.3;
 
     &--heart {
       color: $colors__pink;

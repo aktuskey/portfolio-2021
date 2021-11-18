@@ -1,5 +1,9 @@
 .work {
     max-width: 1280px;
     margin: 0 auto;
-    transform: translateY(-260px);
+    transform: translateY(-80px);
+
+    @include respond-to('between') {
+        transform: translateY(-260px);
+    }
 }

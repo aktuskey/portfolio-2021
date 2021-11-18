@@ -19,6 +19,8 @@ export default {
 
 <style lang="scss">
 .WorkScreens {
+  padding: 0 24px;
+  margin-bottom: 40px;
 
   &__link {
     font-family: $fonts__jakarta-bold;
@@ -28,13 +30,27 @@ export default {
   }
   
   &__img {
-    margin: 0 auto 120px;
+    margin: 0 auto 80px;
   }
 
   &__video {
-    width: 90%;
-    margin: 0 auto 120px;
+    width: 100%;
+    margin: 0 auto 60px;
     display: block;
+  }
+
+  @include respond-to('between') {
+    padding: 0;
+    margin-bottom: 0;
+
+    &__video {
+      width: 90%;
+      margin: 0 auto 120px;
+    }
+
+    &__img {
+      margin: 0 auto 120px;
+    }
   }
 
   @include respond-to('jumbo') {

@@ -47,7 +47,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 24px;
   z-index: 10;
   transition: transform 0.3s ease-in-out 0.35s;
 
@@ -58,7 +58,15 @@ export default {
   &__link {
     color: $colors__black;
     font-family: $fonts__jakarta-bold;
-    font-size: 48px;
+    font-size: 32px;
+  }
+
+  @include respond-to('large') {
+    padding: 40px;
+
+    &__link {
+      font-size: 48px;
+    }
   }
 }
 </style>

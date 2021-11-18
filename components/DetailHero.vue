@@ -59,9 +59,14 @@ export default {
 
   &__svg-wrap {
     position: absolute;
-    top: 7%;
-    left: 7%;
+    top: -6%;
+    left: 2%;
+    right: 2%;
     overflow: hidden;
+
+    svg {
+      width: 100%;
+    }
   }
 
   &__svg {
@@ -80,12 +85,12 @@ export default {
   }
 
   &__main {
-    height: 580px;
+    height: 400px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 115px;
+    padding-bottom: 70px;
   }
 
   &__text-wrapper {
@@ -94,13 +99,13 @@ export default {
 
   &__name {
     font-family: $fonts__jakarta-bold;
-    font-size: 144px;
+    font-size: 80px;
     text-align: center;
     line-height: 1;
   }
 
   &__notes {
-    margin-top: 40px;
+    margin-top: 32px;
   }
 
   &__note {
@@ -111,18 +116,51 @@ export default {
   }
 
   &__description-wrapper {
-    padding: 115px 0 380px;
+    padding: 60px 24px 160px;
   }
 
   &__description {
     color: $colors__black;
     font-family: $fonts__inter;
-    font-size: 24px;
-    line-height: 34px;
+    font-size: 18px;
+    line-height: 28px;
     text-align: center;
     max-width: 895px;
     margin: 0 auto;
     position: relative;
+  }
+
+  @include respond-to('between') {
+
+    &__main {
+    height: 580px;
+    padding-bottom: 115px;
+  }
+
+  &__name {
+    font-size: 144px;
+  }
+
+  &__notes {
+    margin-top: 40px;
+  }
+
+    &__svg-wrap {
+      top: 7%;
+      left: 7%;
+      svg {
+        width: auto;
+      }
+    }
+
+    &__description-wrapper {
+      padding: 115px 0 380px;
+    }
+
+    &__description {
+      font-size: 24px;
+      line-height: 34px;
+    }
   }
 }
 </style>

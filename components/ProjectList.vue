@@ -2,8 +2,11 @@
   <div class="ProjectList">
     <ul class="ProjectList__list">
       <li v-for="(project, index) in projects.list" :key="index" class="ProjectList__project">
-        <a :href="project.url" class="ProjectList__link" v-text="project.name"></a>
+        <a :href="project.url" class="ProjectList__link" v-text="project.name" :ref="'project' + index"></a>
         <p class="ProjectList__description" v-text="project.categories"></p>
+      </li>
+      <li class="ProjectList__project">
+        <a href="/" class="ProjectList__link" ref="test">Test</a>
       </li>
     </ul>
     <div class="ProjectList__shapes">
@@ -27,17 +30,26 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import projects from '~/data/projects.js'
+const charming = require('charming')
+
 export default {
   data: () => ({
     projects
-  })
+  }),
+  mounted () {
+    const testing = this.$refs.test
+    charming(testing)
+    const key = Object.keys(this.$refs) || {}
+    console.log(key.map(item => item))
+  }
 }
 </script>
 
 <style lang="scss">
   .ProjectList {
-    padding: 150px 0 100px;
+    padding: 100px 0 60px;
     position: relative;
 
     &__list {
@@ -47,9 +59,9 @@ export default {
 
     &__project {
       text-align: center;
-      font-size: 94px;
+      font-size: 48px;
       font-family: $fonts__jakarta-bold;
-      margin-bottom: 54px;
+      margin-bottom: 16px;
 
       &:hover {
         .ProjectList__description {
@@ -64,9 +76,9 @@ export default {
       color: $colors__black;
       transition: color 0.3s ease-in-out;
 
-      /* &:hover {
-        color: $colors__white;
-      } */
+      &:hover {
+        color: #7D97C0;
+      }
     }
 
     &__description {
@@ -96,33 +108,79 @@ export default {
       }
 
       &--circle {
-        left: 37%;
-        top: 10%;
+        width: 45%;
+        left: 45%;
+        top: 23%;
         animation: float 3.5s ease-out infinite;
       }
 
       &--bar {
-        bottom: -20%;
+        height: 35%;
+        bottom: 0%;
         right: 10%;
         animation: float 4s ease-out infinite;
       }
 
       &--halfcircle {
-        top: 17%;
-        right: 10%;
+        width: 45%;
+        top: 42%;
+        right: 45%;
         animation: float 3.75s ease-out infinite;
       }
 
       &--halfmoon {
+        width: 55%;
         left: 10%;
-        bottom: 5%;
+        bottom: 3%;
         animation: float 5s ease-out infinite;
       }
 
       &--pill {
-        top: 5%;
+        width: 40%;
+        top: -2%;
         left: 7%;
         animation: float 4s ease-out infinite;
+      }
+    }
+
+    @include respond-to('between') {
+      padding: 150px 0 100px;
+
+      &__project {
+        font-size: 94px;
+        margin-bottom: 54px;
+      }
+
+      &__shape {
+        &--circle {
+        width: auto;
+        left: 37%;
+        top: 10%;
+      }
+
+      &--bar {
+        height: auto;
+        bottom: -20%;
+        right: 10%;
+      }
+
+      &--halfcircle {
+        width: auto;
+        top: 17%;
+        right: 10%;
+      }
+
+      &--halfmoon {
+        width: auto;
+        left: 10%;
+        bottom: 5%;
+      }
+
+      &--pill {
+        width: auto;
+        top: 5%;
+        left: 7%;
+      }
       }
     }
   }

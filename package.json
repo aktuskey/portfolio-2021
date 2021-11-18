@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
+    "charming": "^3.0.2",
     "core-js": "^3.15.1",
     "gsap": "^3.8.0",
     "node-sass": "^5.0.0",

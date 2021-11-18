@@ -7,7 +7,7 @@
 <style lang="scss">
 .RainbowLink {
   font-family: $fonts__jakarta-bold;
-  font-size: 48px;
+  font-size: 32px;
 
   &--a {
     color: $colors__lavender;
@@ -23,6 +23,10 @@
     }
   &--t {
     color: $colors__majorelle;
+  }
+
+  @include respond-to('large') {
+    font-size: 48px;
   }
 }
 </style>
